@@ -1,0 +1,21 @@
+
+
+# un utilisateur a une resa
+User.new.reservations
+
+# un listing a un User
+Listing.new.user
+
+
+# Une ville peut avoir plusieurs listings.
+City.
+
+
+cree une resa
+
+trouver un listing par id:
+mylist = Listing.find(62)
+ trouver le propiretaire
+mylist.
+
+trouver la resa, puis la personne qui a reservé

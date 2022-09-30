@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PimpMyMovieN</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+
+<div class="div-links">
+    <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Pimp My Movie</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      
+          <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav me-auto">
+
+              <li class="nav-item">
+                <a class="nav-link active" <%= link_to 'Home', root_path %></a>
+                  <span class="visually-hidden">(current)</span>
+                </a>
+              </li>
+
+<!--  gestion admin  -->
+ <% if user_signed_in? && current_user.is_admin %>
+          <%= link_to "Admin", admin_root_path%>
+        <% end %>
+<!--  fin gestion admin  -->
+
+
+          <% if user_signed_in?%>
+              <li class="nav-item">
+                <a class="nav-link" <%= link_to 'Movies', root_path %></a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" <%= link_to 'team', root_path %></a>
+              </li>
+
+
+<!--  suppression de session  -->
+          <p class="navbar-link">
+            <%= link_to "Déconnexion", destroy_user_session_path, :method => :delete %> 
+          </p>
+
+
+            <% else %>
+              <li class="nav-item">
+                <a class="nav-link" <%= link_to 'Connexion', new_user_session_path %></a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" <%= link_to 'log up', new_user_registration_path %></a>
+              </li>
+          <% end %>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+
+
+
+
+  </head>
+
+  <body>
+
+
+
+    <%= yield %>
+  </body>
+</html>

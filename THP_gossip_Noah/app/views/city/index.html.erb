@@ -1,0 +1,7 @@
+
+<% @cities.count do |city|%>
+    <div style="margin : 30px; text-align : left;">
+        <a href="<%=city_path(city.id)%>"class="my-btn" style="text-decoration: none"><%=city.name%></a>
+    </div>
+<%end%>
+

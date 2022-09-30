@@ -1,0 +1,61 @@
+<div class="gossip-show-section">
+    <div class="gossip-section">
+        <div class="gossip-title title">
+            <h2><%=@gossip.title%></h2>
+        </div>
+        <div class="gossip-content title">
+            <%=@gossip.content%><br>
+        </div>
+        <div class="user-info title">
+            By  : <%=@user.login%><br>
+            From : <%=@city.name%><br>
+        </div>
+
+        <a href="<%=user_path(@user.id)%>" class="my-btn-user" style="text-decoration: none;">Go to user</a>
+        <%if current_user && current_user.id == @user.id%>
+            <a href="<%= gossip_path(@gossip.id) %>" class="my-btn-destroy" style="text-decoration: none;" data-confirm="êtes-vous sur?" data-method="DELETE">Supprimer la catégorie</a>
+            <a href=<%=edit_gossip_path%> class="my-btn" style="text-decoration: none; ">Edit Gossip</a>
+        <%end%>
+        <div class="likes">
+            <%if current_user%>
+                <%if Like.find_by(user_id: current_user.id, gossip_id: @gossip.id)%>
+                    <a href="<%= like_path(Like.find_by(user_id: current_user.id, gossip_id: @gossip.id).id) %>" class='unlove-btn', data-method="DELETE">❤</a>
+                <%end%>
+                <%unless Like.find_by(user_id: current_user.id, gossip_id: @gossip.id)%>
+                    <%= form_tag(like_index_path) do -%>
+                        <%=hidden_field_tag "gossip_id", @gossip.id%>
+                        <button type="submit" class='love-btn' style="border-radius:50%;">❤</button>
+                    <% end -%>
+                <%end%>
+            <%end%>
+        </div>
+    </div>
+
+    <div class="comment-section">
+        <h3 class="title" style="text-align:left">Comment section</h3>
+        <div class="comments">
+            <% @comments.each do |c|%>
+                <%if c.gossip_id == @gossip.id%>
+                    <div class="comment">
+                        <p class="title"><%=@users.find(c.user_id).login%> : <small><%=c.content%></small></p>
+                        <div class="edit-comment">
+                            <%if current_user.id == c.user_id%>
+                                <a href=<%=edit_gossip_comment_path(@gossip.id, c.id)%> class="modify-comment" style="text-decoration: none;">Modify</a>
+                                <a href="<%= gossip_comment_path(@gossip.id, c.id) %>" class="del-comment" style="text-decoration: none;" data-method="DELETE">Delete</a>
+                            <%end%>
+                        </div>
+                    </div>
+                <%end%>
+            <%end%>
+        </div>
+
+        <%if current_user%>
+            <div class="create-comment">
+                <%= form_for gossip_comment_index_path @gossip.id do |f|-%>
+                    <div><%=f.text_area 'content'%></div>
+                    <div><button type="submit" class='my-btn make-gossip-button'>leave a comment</button></div>
+                <% end -%>
+            </div>
+        <%end%>
+    </div>
+</div>

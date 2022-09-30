@@ -1,0 +1,91 @@
+****User****
+
+Un email, string (géré par la gem d'authentification que l'on verra demain)
+Un encrypted_password,  string(géré par la gem d'authentification que l'on verra demain)
+Une description,  text
+Un first_name,  string
+Un last_name,  string
+
+-->
+rails generate model User email:string encrypted_password:string description:text first_name:string last_name:string is_admin:boolean
+
+
+Un utilisateur peut participer à plusieurs événements au travers des participations.
+ ?? Un utilisateur peut administrer plusieurs événements. ???
+
+
+  has_many :attendances
+  has_many :events, through: :attendances
+
+
+
+...
+
+****Event***
+Une start_date,  datetime.
+Validations : sa présence est obligatoire, et il est impossible de créer ou modifier un événement dans le passé.
+
+Une duration,  integer ( minutes)
+Validations : Sa présence est obligatoire et le nombre de minutes doit être un multiple de 5, et est strictement positif
+
+Un title qui est un string.
+Validations : Sa présence est obligatoire et doit faire au moins 5 caractères et maxi 140 caractères.
+
+Une description qui est un text.
+Validations : Sa présence est obligatoire et la description doit faire entre 20 et 1000 caractères.
+
+Un price qui est un integer. Ce price correspond au nombre d'euros que coûte l'événement.
+Validations : Sa présence est obligatoire et cet integer doit être compris entre 1 et 1000. (pas d'événement gratuit pour cette première version de l'application)
+
+Une location, qui est un string.
+Validations : Sa présence est obligatoire
+
+
+Un événement a plusieurs participations, et plusieurs participants (utilisateurs) au travers des participations. 
+Un événement appartient à un administrateur (utilisateur).
+
+-->
+rails generate model Event start_date:datetime duration:integer title:string description:text price:integer location:string
+**table
+
+
+**model
+  has_many :attendances
+  has_many :users, through: :attendances
+  #belongs_to :user
+
+TODO: validateurs
+
+
+
+
+****Attendance***
+représente la participation à un événement.
+ C'est la table de jointure entre les événements et les participants à un événement 
+ (un peu comme les rendez-vous entre les docteurs et les patients)
+
+rails generate model Attendance stripe_customer_id:string
+
+***model**
+ belongs_to :user
+  belongs_to :event
+
+***table**
+  def change
+    create_table :Attendance do |t|
+      t.belongs_to :user, index: true
+      t.belongs_to :event, index: true
+      t.timestamps
+    end
+
+******
+routes
+
+rails g controller user new create show
+rails g controller attendance index show new create edit update destroy 
+rails g controller event index show new create edit update destroy 
+
+
+rails generate devise:controllers  -c =  
+
+ -c, [--controllers=one two three]              # Select specific controllers to generate (confirmations, passwords, registrations, sessions, unlocks, omniauth_callbacks)

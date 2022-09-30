@@ -1,0 +1,32 @@
+<div class="container text-center" >
+<br>
+<h2>Create a event </h2>
+<%= form_tag url_for(action: 'create'), method: "post" do %>
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+    <%= label_tag 'Title' %><br>
+    <%= text_field_tag(:title) %>
+    <br /> <br />
+
+    <%= label_tag 'Description' %><br>
+    <%= text_field_tag(:description) %>
+    <br /> <br />
+
+  
+
+    <%= label_tag 'Price' %><br>
+    <%= text_field_tag(:price) %>
+    <br /> <br />
+
+    <%= label_tag 'Location' %><br>
+    <%= text_field_tag(:location) %>
+    <br /> <br />
+
+    <%= label_tag 'Duration' %><br>
+    <%= text_field_tag(:duration) %>
+    <br /> <br />
+
+  <%=submit_tag "Create Event" %>
+
+<% end %>
+  </div>

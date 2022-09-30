@@ -1,0 +1,8 @@
+<div class="title">
+<h1>Login : <%=@user.login%></h1>
+
+<p>Name : <%=@user.first_name%> <%=@user.last_name%></p>
+<p>Description : <%=@user.description%></p>
+<p>Email : <%=@user.email%></p>
+<p>City : <%=City.find(@user.city_id).name%></p>
+</div>

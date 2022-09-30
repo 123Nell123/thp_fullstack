@@ -1,0 +1,317 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+h1 {
+    text-align: center;
+    padding: 20px;
+}
+
+h1.welcome_name {
+    color : white;
+    text-shadow: blue 0 0 10px;
+}
+
+body {
+    text-align:center;
+    align-content: center;
+    justify-content: center;
+    background: whitesmoke;
+    background-image: url("../images/the_gossip.jpg");
+}
+
+.index_page {
+    justify-content: center;
+    text-align : center;
+    display: flex;
+    flex-wrap: wrap;
+    margin : 0 50px;
+    padding-top : 25px;
+    border-top : lightgrey 1px solid;
+}
+
+.gossip_index {
+    display:block;
+    padding: 30px;
+    border: 1px skyblue solid;
+    margin: 20px;
+    border-radius: 20px;
+    background: white;
+    box-shadow: 0 0 10px skyblue;
+    width : 27vw;
+    color: #141414; 
+}
+
+#invisible {
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+}
+
+.title {
+    font-family: 'Orbitron', sans-serif;
+}
+
+.contact {
+    padding : 200px;
+    text-shadow: 0 0 10px lightskyblue;
+}
+
+.team {
+    text-shadow: 0 0 10px lightskyblue;
+}
+
+.gossip_title {
+    font-family: 'Orbitron', sans-serif;
+    text-shadow: 0 0 6px rgb(179, 218, 233);
+}
+
+textarea {
+    resize: none;
+    width : 30vw;
+    height : 170px;
+}
+
+.new_gossip {
+    padding : 50px;
+    margin-top : 2px;
+    border-top : lightgrey 1px solid;
+    margin : 0 50px;
+}
+
+.landing-div {
+    align-items: center;
+    align-content : center;
+    padding : 20vh;
+}
+
+.no-blue {
+    text-shadow: none;
+}
+
+.make-gossip {
+    text-align: right;
+    padding-right : 20px;
+    padding-bottom : 0;
+}
+
+.make-gossip-button {
+    background-color : white;
+    box-shadow : 0 0 7px skyblue;
+    font-family: Helvetica, sans-serif;
+    border : none;
+    padding : 6px 10px;
+    margin : 15px;
+    border-radius: 5px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.my-btn {
+    background-color : white;
+    box-shadow : 0 0 7px skyblue;
+    font-family: Helvetica, sans-serif;
+    border : none;
+    padding : 6px 10px;
+    margin : 15px;
+    border-radius: 5px;
+    font-family: 'Orbitron', sans-serif;
+    color: #141414;
+}
+
+.my-btn:hover {
+    background-color: skyblue;
+    color: white;
+    text-shadow: 0 0 4px blue;
+    transform: translateY(-5%) scale(1.1);
+    transition: 0.15s ease-in-out;
+}
+
+
+
+.my-btn-destroy {
+    background-color : white;
+    box-shadow : 0 0 7px palevioletred;
+    font-family: Helvetica, sans-serif;
+    border : none;
+    padding : 6px 10px;
+    margin : 15px;
+    border-radius: 5px;
+    font-family: 'Orbitron', sans-serif;
+    color: #141414;
+}
+
+.my-btn-destroy:hover {
+    background-color: palevioletred;
+    color: white;
+    text-shadow: 0 0 4px fuchsia;
+    transform: translateY(-5%) scale(1.1);
+    transition: 0.15s ease-in-out;
+}
+
+.my-btn-user {
+    background-color : white;
+    box-shadow : 0 0 7px lightgreen;
+    font-family: Helvetica, sans-serif;
+    border : none;
+    padding : 6px 10px;
+    border-radius: 5px;
+    font-family: 'Orbitron', sans-serif;
+    color: #141414;
+}
+
+.my-btn-user:hover {
+    background-color: lightgreen;
+    color: white;
+    text-shadow: 0 0 4px green;
+    transform: translateY(-5%) scale(1.1);
+    transition: 0.15s ease-in-out;
+}
+
+.dropdown-menu li a{
+    padding : 10px;
+    text-decoration : none;
+}
+
+.dropdown-menu {
+    background-color : #171717d8;
+}
+
+/* GOSSIP SHOW SECTION */
+
+.gossip-show-section {
+    border: solid #141414 1px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.gossip-section {
+    margin: 3% 5%;
+    width : 40%;
+}
+
+.comment-section {
+    margin: 3% 5%;
+    width : 40%;
+}
+
+.comments {
+    width : 30vw;
+    height : 40vh;
+    justify-content : left;
+    overflow-y: auto;
+    scrollbar-color: skyblue whitesmoke;
+}
+
+.comment {
+    text-align: left;
+    padding: 5px 5px;
+    border-bottom: solid 1px lightgrey;
+    display: flex;
+}
+
+.edit-comment {
+    margin-left: auto;
+    align-content: right;
+    display: flex;
+    flex-direction: column;
+}
+
+.modify-comment {
+    background-color: white;
+    margin-right : 10px;
+    padding : 0 5px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px skyblue;
+    color: #141414;
+    font-family: 'Orbitron', sans-serif;
+    font-size : 70%;
+}
+
+.modify-comment:hover {
+    background-color: rgb(135, 207, 235);
+    color : white;
+    text-shadow : 0 0 5px blue;
+}
+
+.del-comment {
+    margin-top: 5px;
+    background-color: white;
+    margin-right : 10px;
+    padding : 0 5px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px crimson;
+    color: #141414;
+    font-family: 'Orbitron', sans-serif;
+    font-size : 70%;
+}
+
+.del-comment:hover {
+    background-color: rgb(220, 20, 60);
+    color : white;
+    text-shadow : 0 0 5px red;
+}
+
+
+.create-comment{
+    padding-top: 10px;
+    width: 30vw;
+    border-top: lightgrey 1px solid;
+}
+
+.create-comment textarea {
+    border: solid 1px lightgrey;
+    outline: none;
+    border-radius: 5px;
+    height: 100px;
+    width : 30vw;
+}
+
+input {
+    outline: none;
+}
+
+.gossip-content {
+    padding : 20px;
+    text-align : left;
+    margin : 10px 5px 0 5px;
+    border : solid lightgrey 1px;
+    border-radius : 5px;
+    height : 40vh;
+}
+
+.user-info {
+    padding-top : 20px;
+    padding-bottom : 20px;
+}
+
+.love-btn {
+    border : none;
+    font-size : 200%;
+    color : grey;
+    text-shadow: blue 0 0 5px;
+    background-color : whitesmoke;
+    margin-top : 10px;
+}
+
+.love-btn:hover {
+    color : red;
+}
+
+.unlove-btn {
+    color : red;
+    font-size : 200%;
+    padding-top : 20px;
+    text-decoration: none;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Eventbrite</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand title" href="/">eventBrit</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+       <div class="navbar-nav">
+         <a class="nav-item nav-link active" href=<%=root_path%>> Acceuil  <span class="sr-only">(current)</span></a>
+      
+        <a class="nav-item nav-link active" href=<%=event_new_path%>> creer un evenement   <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link active" href=<%=event_new_path%>> s'inscrire   <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link active" href=<%=new_user_session_path%>> se connecter  <span class="sr-only">(current)</span></a>
+       </div>
+      </div>
+     
+<!-- Dropdown -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        Dropdown link
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Link 1</a>
+        <a class="dropdown-item" href="#">Link 2</a>
+        <a class="dropdown-item" href="#">Link 3</a>
+      </div>
+    </li>
+
+
+
+    </nav>
+
+
+
+  </head>
+
+  <body>
+
+      <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+
+
+
+
+
+
+    <%= yield %>
+  </body>
+</html>

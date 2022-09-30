@@ -1,0 +1,11 @@
+<h1 class='title'>Send your own Gossip</h1>
+<div class="new_gossip">
+      <%= form_tag(gossip_index_path) do -%>
+            <div><h4 class='title'>Title :</h4><%= text_field_tag 'title' %></div><br>
+            <div><h4 class='title'>content :</h4><%=text_area_tag 'content'%></div><br>
+            <%=select_tag "tag", options_for_select(["1","2","3","4"])%>
+            <div><button type="submit" class='my-btn make-gossip-button'>Submit</button></div>
+      <% end -%>
+</div>
+
+      

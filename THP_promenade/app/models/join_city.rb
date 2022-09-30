@@ -1,0 +1,2 @@
+class JoinCity < ApplicationRecord
+end

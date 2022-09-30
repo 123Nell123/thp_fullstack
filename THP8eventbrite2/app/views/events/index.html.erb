@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Events</h1>
+
+
+
+    <!--  Organisme : Liste de cartes -->
+    <div class="container">
+    
+      <div class="row">
+      <% @events.each do |event| %>
+        <div class="col">
+          <div class="card event-card" style="width: 18rem;">
+            <img src="https://picsum.photos/600/400" class="card-img-top" alt="...">
+            <div class="card-body">
+
+              <h1><%= event.title %></h1>
+              <p class="card-text"><%= event.start_date %></p>
+              <p class="card-text"><%= event.description %></p>
+              <p class="card-text"><%= event.price %></p>
+              <p class="card-text"><%= event.location %></p>
+              <button type="submit" class="btn btn-primary"><%= link_to 'Show', event %></button>
+              <button type="submit" class="btn btn-primary"><%= link_to 'Edit', edit_event_path(event) %></button>
+              <button type="submit" class="btn btn-primary"><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      </div>
+    </div>
+
+
+
+
+
+
+
+<br>
+
+<%= link_to 'New Event', new_event_path %>

@@ -1,0 +1,13 @@
+  <%= form_with model: @event, local: true, html: { class: "form-signin mt-3" } do |f| %>
+
+      <h1 class="h3 mb-3 font-weight-normal text-center">Create Event</h1>
+      <p>Start Date :<br/><%= f.datetime_select :start_date, class: "form-control" %></p>
+      <p>Duration :<br/> <%= f.number_field :duration, class: "form-control" %></p>
+      <p>Event Title :<br/><%= f.text_field :title, class: "form-control"%></p>
+      <p>Inscription Fees :<br/><%= f.number_field :price, class: "form-control" %></p>
+      <p>Event Location :<br/><%= f.text_field :location, class: "form-control" %></p>
+      <p>Event Description :<br/><%= f.text_field :description, class: "form-control"%></p>
+      <div class="actions mt-5">
+        <%= f.submit "Submit", class: "btn btn-lg btn-primary btn-block" %>
+      </div>
+      <% end %>

@@ -1,0 +1,26 @@
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>Your Gossip has been Uploaded.</strong> Check it out now !
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="outline: none;">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<%if current_user%>
+<div class="make-gossip">
+    <form action= <%= new_gossip_path %> method="GET">
+        <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
+        <input type="submit" class="make-gossip-button my-btn" value="send Gossip">
+    </form>
+</div>
+<%end%>
+<h1 class="title display-3">The Gossips</h1> <%=@alert%>
+
+<div class="index_page">
+    <%Gossip.all.each do |gossip|%>
+            <a href="gossip/<%=gossip.id%>" class="my-btn gossip_index" style="text-decoration: none;">
+                <p style="font-size : 70%; text-align:right; padding-right: 10px;"><%=Like.count {|l| l.gossip_id == gossip.id}%>❤</p>
+                <h3 class="title" style="text-decoration:none;"><%=gossip.title%></h3>
+                <p style="text-decoration:none;"><%=User.all.find_by(id: gossip.user_id).login%></p>
+                <p style="font-size : 70%; text-align:left; padding-left: 10px;"><%=Comment.count {|c| c.gossip_id == gossip.id}%> comment(s)</p>
+            </a>
+    <%end%>
+</div>

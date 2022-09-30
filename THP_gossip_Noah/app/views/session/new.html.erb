@@ -1,0 +1,5 @@
+<%= form_tag(session_index_path) do -%>
+    <p>Username</p><%= text_field_tag 'login', nil%>
+    <p>Password</p><%= password_field_tag 'password', nil%>
+    <div><button type="submit" class='my-btn-user'>Submit</button></div>
+<% end -%>

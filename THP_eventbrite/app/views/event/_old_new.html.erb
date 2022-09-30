@@ -1,0 +1,46 @@
+<div class="container">
+<div class="jumbotron">
+<h1 class='title'>cree ton event</h1>
+
+ 
+
+
+<div class style="background-color:powderblue;">
+<% if @event.errors.any? %>
+  <p>⚠️ Nous n'avons pas réussi à créer un event pour la raison suivante :</p><ul>
+    <% @event.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+</div>
+
+
+
+
+formulaire_tag
+<%= form_tag url_for(action: 'create'), method: "post" do %>
+      <%= label_tag 'Title' %>
+      <%= text_field_tag 'title', @event.title %>
+      <br /> <br />
+
+      <%= label_tag 'description' %>
+      <%= text_area_tag 'description', @event.description %>
+      <br /> <br />
+
+      <%= label_tag 'location' %>
+      <%= text_field_tag 'location', @event.location %>
+    
+      <%= label_tag 'price' %>
+      <%= text_field_tag 'price', @event.price %>
+
+
+      <br /> <br />
+
+      <%= submit_tag "Create Event" %>
+ <% end %>
+
+
+
+</div>
+</div>

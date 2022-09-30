@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Appli</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet"> 
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand title" href="/">The Gossip Project</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+       <div class="navbar-nav">
+         <a class="nav-item nav-link active" href=<%=gossip_index_path%>>Gossips <span class="sr-only">(current)</span></a>
+         <a class="nav-item nav-link active" href=<%=city_index_path%>>Cities <span class="sr-only">(current)</span></a>
+         <a class="nav-item nav-link" href=<%=contact_path%>>Contact</a>
+         <a class="nav-item nav-link" href=<%=team_path%>>Team</a>
+       </div>
+      </div>
+      <div class="dropdown">
+      <%unless current_user%>
+        <button class="my-btn-user dropdown-toggle" type="button" data-toggle="dropdown">Offline
+      <%else%>
+        <button class="my-btn-user dropdown-toggle" type="button" data-toggle="dropdown">Online
+      <%end%>
+      <span class="caret"></span></button>
+      <ul class="dropdown-menu">
+        <%unless current_user%>
+          <li class="good-log title"><a href="<%=new_session_path%>">Log in</a></li>
+          <li class="good-log title"><a href="<%=new_user_path%>">Sign up</a></li>
+        <%end%>
+        <%if current_user%>
+          <li class="bad-log title"><%= link_to "Log out", session_path(session.id), method: :delete %></li>
+        <%end%>
+      </ul> 
+      </div>
+    </nav>
+  </header>
+  <body>
+  
+    <%= yield %>
+  </body>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      $('.alert').alert()
+    })
+
+    const cursor = document.querySelector('.cursor');
+
+    document.addEventListener('mousemove', e => {
+      cursor.setAttribute('style', 'top:' + (e.pageY - 10) + "px; left:" + (e.pageX - 10) + "px;")
+    })
+
+    document.addEventListener('click', ()=>{
+      cursor.classList.add('expand');
+
+      setTimeout(() => {
+        cursor.classList.remove('expand');  
+      }, 500);
+    })
+  </script>
+</html>

@@ -1,0 +1,23 @@
+
+[1mFrom:[0m /home/vagrant/week3/scrappeur-fou/lib/mairie-Christmas.rb:21 Object#get_townhall_email:
+
+     [1;34m7[0m: [32mdef[0m [1;34mget_townhall_email[0m(townhall_url)
+     [1;34m8[0m:     [1;34m#/html/body/div[2]/main/section[2]/div/table/tbody/tr[4]/td[2][0m
+     [1;34m9[0m:     pattern_mail =[31m[1;31m"[0m[31m[1;31m"[0m[31m[0m
+    [1;34m10[0m:     racine_mail = [31m[1;31m"[0m[31m/html/body/div[2]/main/section[2]/div/table/tbody/[1;31m"[0m[31m[0m
+    [1;34m11[0m:     [1;34m# Search for nodes by xpath[0m
+    [1;34m12[0m:     [1;34m# Find all "a" tags with a parent tag whose name is "h3"[0m
+    [1;34m13[0m:     pattern_mail = [31m[1;31m"[0m[31m#{racine_mail}[0m[31m*/td[2][1;31m"[0m[31m[0m
+    [1;34m14[0m: 
+    [1;34m15[0m: 
+    [1;34m16[0m:     doc = [1;34;4mNokogiri[0m::HTML([1;34;4mURI[0m.open(townhall_url))
+    [1;34m17[0m:     mail1 = [31m[1;31m"[0m[31m/html/body/div[2]/main/section[2]/div/table/tbody/tr[4]/td[2][1;31m"[0m[31m[0m
+    [1;34m18[0m:     [1;34m#doc.search(mail1).each do |link|[0m
+    [1;34m19[0m:     characters = doc.xpath([31m[1;31m"[0m[31m//main[1;31m"[0m[31m[0m)
+    [1;34m20[0m:     doc.xpath(mail1)
+ => [1;34m21[0m:     binding.pry [1;34m# On lance PRY au milieu de la méthode[0m
+    [1;34m22[0m:     puts test
+    [1;34m23[0m:     puts characters
+    [1;34m24[0m:     [1;34m#end[0m
+    [1;34m25[0m: [32mend[0m
+

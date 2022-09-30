@@ -1,0 +1,19 @@
+
+<% if @gossip.errors.any? %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Couldn't create Gossip : </strong>
+        <% @gossip.errors.full_messages.each do |message| %>
+        <%= message + "."%>
+        <% end %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="outline: none;">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+<% end %>
+<h1 class='title'>Send your own Gossip</h1>
+<%= form_tag(gossip_index_path) do -%>
+      <div><h4 class='title'>Title :</h4><%= text_field_tag 'title' %></div><br>
+      <div><h4 class='title'>content :</h4><%=text_area_tag 'content'%></div><br>
+      <%=select_tag "tag", options_for_select(["1","2","3","4"])%>
+      <div><button type="submit" class='my-btn make-gossip-button'>Submit</button></div>
+<% end -%>

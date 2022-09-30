@@ -1,0 +1,8 @@
+<%= form_tag(user_index_path) do -%>
+    <p>Email</p><%= email_field_tag 'email', nil%>
+    <p>First name</p><%= text_field_tag 'first_name', nil%>
+    <p>Last name</p><%= text_field_tag 'last_name', nil%>
+    <p>Username</p><%= text_field_tag 'login', nil%>
+    <p>Password</p><%= password_field_tag 'password', nil%>
+    <div><button type="submit" class='my-btn-user'>Submit</button></div>
+<% end -%>
